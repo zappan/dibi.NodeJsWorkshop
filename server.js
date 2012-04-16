@@ -1,9 +1,25 @@
 var http = require("http")
-  , s = http.createServer();
+  , s = http.createServer()
+  , fnResponseHandler;
+
+fnResponseHandler = function(response) {
+  response.setEncoding('utf8');
+
+  response.on('data', function (chunk) {
+    console.log(chunk);
+  });
+}
+
 
 s.on("request", function(req, res) {
   var userAgentString = req.headers["user-agent"]
-    , responseHTML;
+    , responseHTML
+    , nyt = http.createClient(80, "www.nytimes.com")
+    , request = nyt.request("GET", "/")
+    ;
+  
+  request.on("response", fnResponseHandler);
+  request.end();
 
   responseHTML = "<html>\n"
       + "<head>\n"

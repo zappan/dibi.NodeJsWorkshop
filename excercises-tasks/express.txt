@@ -1,0 +1,10 @@
+create express server
+
+serve2 different pages based on value of HTTP GET param "page"
+
+create a redir from /old to /new
+
+Set a cookie on the client 
+  (needs middleware => actually it doesn't, reading a cookie does
+   => created some reading and clearing stuff)
+   

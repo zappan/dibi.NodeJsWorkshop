@@ -1,0 +1,13 @@
+Create a CommonJS module called "fish"
+  provide functions to
+    swim
+    mouth breath
+    flop around
+
+Import your module into a node project
+
+Call the various functions
+
+----
+
+common: creating it in /lib

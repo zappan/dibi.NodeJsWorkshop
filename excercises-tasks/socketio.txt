@@ -1,0 +1,44 @@
+attach socket.io to an express server
+
+create a route which renders a page that includes socket.io
+
+send 'hello world' to the client socket, then respond with 'thanks' and disconnect from the server
+
+
+---
+http://www.ianwootten.co.uk/2011/07/04/maintaining-references-to-sockets-with-express-and-socket-io
+
+---
+
+err handling:
+1) surpressing errorss
+process.on('uncaughtException', function(err) {
+	// log it!
+	console.dir(err);
+	// you may exit
+	process.exit(1);
+})
+
+
+2) handle err via event - catches any thrown things
+req.on("error", function(err) {
+	// safely handle this if possible
+})
+
+*) putting callback code in try-catch doesn't help, thrown outside of callback, before reaching it
+
+
+3) once()
+*) after happenned once => cancels and cleans up everything
+
+4) ?
+
+5) upstart
+*) cloudcick script
+
+6) forever
+
+
+
+
+
